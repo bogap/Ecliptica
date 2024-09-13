@@ -1,0 +1,21 @@
+.info-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.info-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 30%;
+    margin-bottom: 20px;
+}
+
+.info-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-container p {
+    font-size: 1.2rem;
+}
