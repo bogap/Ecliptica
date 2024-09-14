@@ -1,6 +1,6 @@
 import React from 'react';
 import {useLocation, useParams} from 'react-router-dom';
-import './Info.css';
+import './info.css';
 
 // plant details
 const plants = [

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import './home.css';
 
 // @ts-ignore
 import aloeImage from '../images/aloe.jpg';
@@ -13,7 +13,7 @@ import chineseEvergreenImage from '../images/chinese-evergreen.jpg';
 // @ts-ignore
 import daisyImage from '../images/daisy.jpg';
 // @ts-ignore
-import dracaenasImage from '../images/dracaenas.jpg';
+import dracaenasImage from '../images/Dracaenas.jpg';
 // @ts-ignore
 import ladyPalmImage from '../images/lady-palm.jpg';
 // @ts-ignore
