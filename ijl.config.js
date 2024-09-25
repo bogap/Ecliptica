@@ -9,10 +9,10 @@ module.exports = {
   },
   /* use https://kc.admin.inno-js.ru/ to create config, navigations and features */
   navigations: {
-    "ecliptica.main": "/ecliptica",
-    "ecliptica.info": "/ecliptica/info/:id",
-    "ecliptica.calendar": "/ecliptica/calendar",
-},
+    'ecliptica.main': '/ecliptica',
+    'ecliptica.info': '/ecliptica/info/:id',
+    "ecliptica.calendar": "/ecliptica/calendar"
+  },
   features: {
     'ecliptica': {
       // add your features here in the format [featureName]: { value: string }

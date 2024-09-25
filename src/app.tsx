@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route, Link, Navigate, generatePath} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, Navigate} from 'react-router-dom';
 import Home from './pages/Home/home';
 import Info from './pages/Info/info';
 import {getNavigationsValue} from "@ijl/cli";

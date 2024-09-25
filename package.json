@@ -22,17 +22,21 @@
     "homepage": "https://github.com/bogap/Ecliptica#readme",
     "description": "",
     "devDependencies": {
-        "@brojs/create": "^1.0.0-beta.0"
+        "@brojs/create": "^1.0.0-beta.0",
+        "file-loader": "^6.2.0",
+        "rimraf": "^6.0.1"
     },
     "dependencies": {
         "@emotion/css": "^11.13.0",
         "@ijl/cli": "^5.1.0",
-        "@types/react": "^18.3.5",
+        "@types/react": "^18.3.8",
         "@types/react-dom": "^18.3.0",
         "express": "^4.19.2",
+        "plant-care-ui-kit": "^0.2.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.26.2",
-        "typescript": "^5.5.4"
+        "react-scripts": "^5.0.1",
+        "typescript": "^4.9.5"
     }
 }
