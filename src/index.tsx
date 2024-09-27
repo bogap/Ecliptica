@@ -1,23 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-  
-import App from './app';
-  
-export default () => <App/>;
-  
-let rootElement: ReactDOM.Root
-  
-export const mount = (Component, element = document.getElementById('app')) => {
-  const rootElement = ReactDOM.createRoot(element);
-  rootElement.render(<Component/>);
+import App from './App';
 
-  if(module.hot) {
-      module.hot.accept('./app', ()=> {
-        rootElement.render(<Component/>);
-      })
-  }
-};
+console.log(document);
 
-export const unmount = () => {
-  rootElement.unmount();
-};
+ReactDOM.createRoot(
+  document.getElementById("app"),
+)
+.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
