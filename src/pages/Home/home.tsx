@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { PlantCard, Grid, Text, PlantSearch } from 'plant-care-ui-kit';
+import {Link, useNavigate} from 'react-router-dom';
+import { PlantCard, Grid, Text, PlantSearch, GreenButton } from 'plant-care-ui-kit';
 
 // Array of plant data with imported images
 const plants = [
@@ -24,24 +24,6 @@ const Home = () => {
         plant.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // return (
-    //     <div className="home-container">
-    //         <Text color = '#333333' fontSize = '30px' > My Plants </Text>
-    //         <div className="plant-grid">
-    //             <Grid>
-    //                 {plants.map((plant) => (
-    //                     <Link
-    //                         key={plant.id}
-    //                         to={`/ecliptica/info/${plant.id}`}
-    //                         state={{ plant }}
-    //                     >
-    //                         <PlantCard name={plant.name} imageUrl={plant.image} ></PlantCard>
-    //                     </Link>
-    //                 ))}
-    //             </Grid>
-    //         </div>
-    //     </div>
-    // );
     return (
         <div className="home-container" style={{padding: '20px', maxWidth: '1200px', margin: '0 auto'}}>
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px'}}>
@@ -56,6 +38,11 @@ const Home = () => {
 
                 {/* Search Bar */}
                 <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '20px'}}>
+                    {/* Calendar Button */}
+                    <Link to="/ecliptica/calendar" style={{ margin: '10px' }}>
+                        <GreenButton size="small" label="Go to Calendar" />
+                    </Link>
+
                     <PlantSearch
                         query={searchTerm}
                         onSearch={setSearchTerm}
