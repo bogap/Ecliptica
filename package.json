@@ -1,6 +1,6 @@
 {
     "name": "ecliptica",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "main": "./src/index.tsx",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,7 +32,7 @@
         "@types/react": "^18.3.8",
         "@types/react-dom": "^18.3.0",
         "express": "^4.19.2",
-        "plant-care-ui-kit": "^0.2.0",
+        "plant-care-ui-kit": "^0.2.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.26.2",
