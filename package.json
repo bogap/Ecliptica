@@ -16,6 +16,7 @@
         "@brojs/cli": "^1.0.0",
         "@brojs/create": "^1.0.0",
         "@emotion/css": "^11.13.0",
+        "cors": "^2.8.5",
         "express": "^4.19.2",
         "plant-care-ui-kit": "^0.2.1",
         "react": "^18.3.1",
