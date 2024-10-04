@@ -8,6 +8,13 @@ plantsRouter.get('/list', (req, res) => {
     );
 })
 
+plantsRouter.get('/recommened/list', (req, res) => {
+    res.send(
+        require('./plantList.json')
+    );
+})
+
+
 plantsRouter.get('/:id', (req, res) => {
     res.send(
         require('./plant.json')

@@ -17,8 +17,6 @@ const plants = [
 ];
 
 const Home = () => {
-    const [selectedPlant, setSelectedPlant] = useState(null);
-
     const [searchTerm, setSearchTerm] = useState('');
     const filteredPlants = plants.filter(plant =>
         plant.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,6 +41,7 @@ const Home = () => {
                         <GreenButton size="small" label="Go to Calendar" />
                     </Link>
 
+                    {/* Search */}
                     <PlantSearch
                         query={searchTerm}
                         onSearch={setSearchTerm}

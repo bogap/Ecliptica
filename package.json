@@ -4,39 +4,22 @@
     "main": "./src/index.tsx",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "ijl-cli server --port=8099 --with-open-browser",
-        "build": "npm run clean && ijl-cli build --dev",
-        "build:prod": "npm run clean && ijl-cli build",
+        "start": "brojs server --port=8099 --with-open-browser",
+        "build": "npm run clean && brojs build --dev",
+        "build:prod": "npm run clean && brojs build",
         "clean": "rimraf dist"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bogap/Ecliptica.git"
     },
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/bogap/Ecliptica/issues"
-    },
-    "homepage": "https://github.com/bogap/Ecliptica#readme",
     "description": "",
-    "devDependencies": {
-        "@brojs/create": "^1.0.0-beta.0",
-        "file-loader": "^6.2.0",
-        "rimraf": "^6.0.1"
-    },
     "dependencies": {
+        "@brojs/cli": "^1.0.0",
+        "@brojs/create": "^1.0.0",
         "@emotion/css": "^11.13.0",
-        "@ijl/cli": "^5.1.0",
-        "@types/react": "^18.3.8",
-        "@types/react-dom": "^18.3.0",
         "express": "^4.19.2",
         "plant-care-ui-kit": "^0.2.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "react-router-dom": "^6.26.2",
-        "react-scripts": "^5.0.1",
-        "typescript": "^4.9.5"
+        "react-router-dom": "^6.26.2"
     }
 }
