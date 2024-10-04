@@ -4,7 +4,9 @@
     "main": "./src/index.tsx",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "brojs server --port=8099 --with-open-browser",
+        "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+        "start:frontend": "brojs server --port=8099 --with-open-browser",
+        "start:backend": "cd stubs/api/plants_calendar && node index.js",
         "build": "npm run clean && brojs build --dev",
         "build:prod": "npm run clean && brojs build",
         "clean": "rimraf dist"
@@ -22,5 +24,8 @@
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.26.2"
+    },
+    "devDependencies": {
+        "concurrently": "^9.0.1"
     }
 }
