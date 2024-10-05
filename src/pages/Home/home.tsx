@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { PlantCard, Grid, Text, PlantSearch, GreenButton } from 'plant-care-ui-kit';
 import AppBar from '../compoments/AppBar';
+// @ts-ignore
+import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
 
 
@@ -14,7 +16,7 @@ const Home = () => {
     useEffect(() => {
         const fetchPlants = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/plants/list',
+                const response = await axios.get('http://localhost:3000/plants/list',
                     {
                         params: {alias: searchTerm || 'monstera'}
                     }
@@ -45,7 +47,6 @@ const Home = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '20px'
                 }}>
                     {/* Title */}
                     <Text
@@ -61,28 +62,19 @@ const Home = () => {
                         display: 'flex',
                         justifyContent: 'flex-end',
                         alignItems: 'center',
-                        marginBottom: '20px'
+                        padding: '0px 0px 0px 800px',
                     }}>
-                        {/* Calendar Button */}
-                        <Link to="/ecliptica/calendar" style={{margin: '10px'}}>
-                            <GreenButton size="small" label="Go to Calendar"/>
-                        </Link>
-
-                        {/* Search */}
-                        {/*<PlantSearch*/}
-                        {/*    query={searchTerm}*/}
-                        {/*    onSearch={setSearchTerm}*/}
-                        {/*    placeholder="Search plants..."*/}
-                        {/*/>*/}
+                            {/* Search Bar */}
+                            <PlantSearch
+                                query={searchTerm}
+                                onSearch={setSearchTerm}
+                                placeholder="Search plants..."
+                            />
+                            {/* Calendar Button */}
+                            <Link to="/ecliptica/calendar" style={{marginLeft: '10px'}}>
+                                {<img src={calendarIcon} style={{ width: '50px', height: '50px'}} />}
+                            </Link>
                     </div>
-                </div>
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                    {/* Search Bar */}
-                    <PlantSearch
-                        query={searchTerm}
-                        onSearch={setSearchTerm}
-                        placeholder="Search plants..."
-                    />
                 </div>
             </AppBar>
 
@@ -96,7 +88,7 @@ const Home = () => {
                             state={{plant}}
                             style={{textDecoration: 'none'}}
                         >
-                            <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
+                        <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
                         </Link>
                     ))}
                 </Grid>

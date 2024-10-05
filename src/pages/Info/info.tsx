@@ -1,8 +1,9 @@
 import React from 'react';
-import {useLocation, useParams} from 'react-router-dom';
+import {Link, useLocation, useParams} from 'react-router-dom';
 import './info.css';
 import AppBar from '../compoments/AppBar';
 import {Text} from "plant-care-ui-kit";
+import addIcon from '../compoments/imgs/add.png';
 
 const Info = () => {
     const location = useLocation();
@@ -19,16 +20,20 @@ const Info = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '20px'
                 }}>
-                    {/* Title */}
-                    <Text
-                        color='#333333'
-                        fontSize='30px'
-                        style={{textAlign: 'left', margin: '0'}}
-                    >
-                        {plant.alias}
-                    </Text>
+                    <Link to="/ecliptica/" style={{ textDecoration: 'none' }}>
+                        <Text
+                            color='#333333'
+                            fontSize='30px'
+                            style={{ textAlign: 'left', margin: '0', cursor: 'pointer' }}
+                        >
+                            My Plants
+                        </Text>
+                    </Link>
+                    {/* Calendar Button */}
+                    <Link to="/ecliptica/" style={{marginLeft: '1000px', justifyContent: 'flex-end'}}>
+                        {<img src={addIcon} style={{ width: '50px', height: '50px'}} />}
+                    </Link>
                 </div>
             </AppBar>
             <div className="info-container">

@@ -3,7 +3,7 @@ const axios = require('axios');
 const FormData = require('form-data');
 const plantsRouter = express.Router();
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 
