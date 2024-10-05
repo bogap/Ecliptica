@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import { PlantCard, Grid, Text, PlantSearch, GreenButton } from 'plant-care-ui-kit';
+//import { PlantCard, Grid, Text, PlantSearch, GreenButton } from 'plant-care-ui-kit';
+
+//import { PlantCard, Grid, Text, PlantSearch, GreenButton } from '../compoments/PlantSearch';
+import PlantCard from "../compoments/PlantCard";
+import Grid from "../compoments/Grid";
+import Text from '../compoments/Text';
+import PlantSearch from "../compoments/PlantSearch";
+import GreenButton from "../compoments/Button";
 import AppBar from '../compoments/AppBar';
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';

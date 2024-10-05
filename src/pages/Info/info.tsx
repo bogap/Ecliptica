@@ -2,7 +2,14 @@ import React from 'react';
 import {Link, useLocation, useParams} from 'react-router-dom';
 import './info.css';
 import AppBar from '../compoments/AppBar';
-import {Text} from "plant-care-ui-kit";
+
+//import {Text} from "plant-care-ui-kit";
+import PlantCard from "../compoments/PlantCard";
+import Grid from "../compoments/Grid";
+import Text from '../compoments/Text';
+import PlantSearch from "../compoments/PlantSearch";
+import GreenButton from "../compoments/Button";
+
 import addIcon from '../compoments/imgs/add.png';
 
 const Info = () => {
