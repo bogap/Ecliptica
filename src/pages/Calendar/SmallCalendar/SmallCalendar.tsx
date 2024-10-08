@@ -1,6 +1,8 @@
 import {css} from "@emotion/css";
 import LargeDay from "../LargeDay/LargeDay";
 import React, {useState, useEffect} from "react";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
 
 export default function SmallCalendar() {
@@ -34,6 +36,7 @@ export default function SmallCalendar() {
 
     return (
         <>
+            <Header/>
             <div id='calendars' className={css`
                 display: flex;`}>
                 {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
@@ -47,6 +50,7 @@ export default function SmallCalendar() {
                     );
                 })}
             </div>
+            <Footer/>
         </>
     );
 }
