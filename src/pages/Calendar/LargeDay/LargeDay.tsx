@@ -1,44 +1,62 @@
 import React, {useEffect, useState} from "react";
 import {css} from '@emotion/css'
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'
 
 
 export default function LargeDay(props: { day: number, plant: any }) {
+    const [wateredButtonText, setWateredButtonText] = useState("WATERED");
+    const [backgroundColor, setBackgroundColor] = useState('#fd7c6e');
+    const [wateredButtonColor, setWateredButtonColor] = useState('secondary')
+
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + props.day);
     const day = currentDate.getDate();
     const dayName = currentDate.toUTCString().split(",")[0];
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
 
+    function handleWatered() {
+        setWateredButtonText("NOT WATERED")
+        setBackgroundColor('#00e600')
+        setWateredButtonColor('error')
+    }
+
     return (<>
         <div id='main' className={css`
             display: flex;
             flex-direction: column;
+            border: 1px solid black;
             width: 100%;
             height: 90vh;
-            background-color: ${props.plant ? '#fd7c6e' : '#00e600'}`}>
-            <div id='info' className={css`
-                border: 2px solid black;
+            background-color: ${props.plant ? backgroundColor : '#00e600'}`}>
+            <div id='date' className={css`
+                border-bottom: 1px solid black;
                 height: 10vh;
                 text-align: center;
                 display: flex;
                 align-items: center;
                 justify-content: center;`}>
-                <Typography variant='h3'>{dayName}<br/> {day} {month}</Typography>
+                <Typography variant='h4'>{dayName}<br/> {day} {month}</Typography>
             </div>
-            <div id='date' className={css`
-                border: 2px solid black;
-                height: 80vh;`}>
+            <div id='info' className={css`
+                padding: 20px;
+                text-align: center;`}>
                 {props.plant ? (
                     <>
-                        <h3>{props.plant.name}</h3>
-                        <p>{props.plant.deadline}</p>
-                        <img src={props.plant.image} alt={props.plant.name} width="100%"/>
+                        <Typography variant="h5">{props.plant.name}</Typography>
+                        <img src={props.plant.image} alt={props.plant.name}
+                             className={css`
+                                 max-width: 100%;
+                                 height: auto;
+                                 border-radius: 15px;
+                                 margin-top: 20px;
+                             `}/>
                     </>
                 ) : (
-                    <h3>No plant</h3>
+                    <Typography variant="h5">No plant</Typography>
                 )}
             </div>
+            <Button variant="contained" color={wateredButtonColor} onClick={handleWatered}>{wateredButtonText}</Button>
         </div>
     </>)
 }

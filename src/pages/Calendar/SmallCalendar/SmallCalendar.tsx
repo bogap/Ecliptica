@@ -4,10 +4,10 @@ import React, {useState, useEffect} from "react";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 
-
 export default function SmallCalendar() {
     const [plantData, setPlantData] = useState([]);
     const [error, setError] = useState('');
+    const [wateredPlants, setWateredPlants] = useState({});
 
     useEffect(() => {
         const fetchPlants = async () => {
@@ -27,7 +27,8 @@ export default function SmallCalendar() {
         const currentDate = new Date();
         currentDate.setDate(currentDate.getDate() + dayOffset);
         const formattedDate = currentDate.toISOString().split('T')[0];
-        return plantData.find(plant => plant.deadline === formattedDate) || null;
+
+        return plantData.find(plant => plant.wateringDates.includes(formattedDate)) || null;
     }
 
     if (error) {
@@ -38,7 +39,8 @@ export default function SmallCalendar() {
         <>
             <Header/>
             <div id='calendars' className={css`
-                display: flex;`}>
+                display: flex;
+            `}>
                 {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
                     const plantForDay = getPlantForDay(dayOffset);
                     return (
