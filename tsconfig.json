@@ -16,10 +16,6 @@
         "types" : ["webpack-env", "node"],
         "resolveJsonModule": true
     },
-    "include": [
-        "src",
-        "types" // Add the folder with the custom type definitions
-    ],
     "exclude": [
         "node_modules",
         "**/*.test.ts",
