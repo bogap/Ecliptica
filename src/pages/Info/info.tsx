@@ -10,6 +10,7 @@ import Text from '../compoments/Text';
 import PlantSearch from "../compoments/PlantSearch";
 import GreenButton from "../compoments/Button";
 
+// @ts-ignore
 import addIcon from '../compoments/imgs/add.png';
 
 const Info = () => {
