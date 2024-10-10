@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './app';
+import App from './App';
 
 export default () => <App/>;
 
 let rootElement: ReactDOM.Root
 
-export const mount = (Сomponent, element = document.getElementById('app')) => {
+export const mount = (Сomponent, element = document.getElementById('App')) => {
     const rootElement = ReactDOM.createRoot(element);
     rootElement.render(<Сomponent/>);
 
