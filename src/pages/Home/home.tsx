@@ -19,13 +19,20 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [userPlants, setUserPlants] = useState([]);
+
+    //user plant list
+    useEffect(() => {
+        const savedPlants = JSON.parse(localStorage.getItem('userPlants') || '[]');
+        setUserPlants(savedPlants);
+    }, []);
 
     useEffect(() => {
         const fetchPlants = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/plants/list',
                     {
-                        params: {alias: searchTerm || 'monstera'}
+                        params: {alias: searchTerm || 'a'}
                     }
                     );
                 setPlants(response.data.results);
@@ -71,33 +78,55 @@ const Home = () => {
                         alignItems: 'center',
                         padding: '0px 0px 0px 800px',
                     }}>
-                            {/* Search Bar */}
-                            <PlantSearch
-                                query={searchTerm}
-                                onSearch={setSearchTerm}
-                                placeholder="Search plants..."
-                            />
-                            {/* Calendar Button */}
-                            <Link to="/ecliptica/calendar" style={{marginLeft: '10px'}}>
-                                {<img src={calendarIcon} style={{ width: '50px', height: '50px'}} />}
-                            </Link>
+                        {/* Search Bar */}
+                        <PlantSearch
+                            query={searchTerm}
+                            onSearch={setSearchTerm}
+                            placeholder="Search plants..."
+                        />
+                        {/* Calendar Button */}
+                        <Link to="/ecliptica/calendar" style={{marginLeft: '10px'}}>
+                            {<img src={calendarIcon} style={{width: '50px', height: '50px'}}/>}
+                        </Link>
                     </div>
                 </div>
             </AppBar>
 
-            {/* Plant Grid */}
             <div className="grid-container" style={{padding: '20px', maxWidth: '1200px', margin: '0 auto'}}>
                 <Grid>
-                    {plants.map((plant) => (
-                        <Link
-                            key={plant.id}
-                            to={`/ecliptica/info/${plant.id}`}
-                            state={{plant}}
-                            style={{textDecoration: 'none'}}
-                        >
-                        <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
-                        </Link>
-                    ))}
+                    {searchTerm === '' ? (
+                        //saved plants
+                        userPlants.length > 0 ? (
+                            userPlants.map((plant) => (
+                                <Link
+                                    key={plant.id}
+                                    to={`/ecliptica/info/${plant.id}`}
+                                    state={{plant}} // Pass the plant object to the Info page
+                                    style={{textDecoration: 'none'}}
+                                >
+                                    <PlantCard name={plant.alias} imageUrl={plant.image_url} />
+                                </Link>
+                            ))
+                        ) : (
+                            <p>Add plants to your collection!</p>
+                        )
+                    ) : (
+                        // search results
+                        plants.length > 0 ? (
+                            plants.map((plant) => (
+                                <Link
+                                    key={plant.id}
+                                    to={`/ecliptica/info/${plant.id}`}
+                                    state={{plant}}
+                                    style={{textDecoration: 'none'}}
+                                >
+                                    <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
+                                </Link>
+                            ))
+                        ) : (
+                            <p>No results found for "{searchTerm}". Try another search.</p>
+                        )
+                    )}
                 </Grid>
             </div>
             </div>

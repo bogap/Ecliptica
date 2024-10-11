@@ -1,21 +1,35 @@
 import React from 'react';
-import {Link, useLocation, useParams} from 'react-router-dom';
+import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 import './info.css';
 import AppBar from '../compoments/AppBar';
-
-//import {Text} from "plant-care-ui-kit";
-import PlantCard from "../compoments/PlantCard";
-import Grid from "../compoments/Grid";
 import Text from '../compoments/Text';
-import PlantSearch from "../compoments/PlantSearch";
-import GreenButton from "../compoments/Button";
 
 // @ts-ignore
 import addIcon from '../compoments/imgs/add.png';
+import removeIcon from '../compoments/imgs/remove.png';
+
 
 const Info = () => {
     const location = useLocation();
     const { plant } = location.state;
+    const navigate = useNavigate();
+
+    const savedPlants = JSON.parse(localStorage.getItem('userPlants') || '[]');
+    const plantExists = savedPlants.some((savedPlant) => savedPlant.id === plant.id);
+
+    const addToMyPlants = () => {
+        if (!plantExists) {
+            const updatedPlants = [...savedPlants, plant];
+            localStorage.setItem('userPlants', JSON.stringify(updatedPlants));
+            navigate('/ecliptica/');
+        }
+    };
+
+    const removeFromMyPlants = () => {
+        const updatedPlants = savedPlants.filter((savedPlant) => savedPlant.id !== plant.id);
+        localStorage.setItem('userPlants', JSON.stringify(updatedPlants));
+        navigate('/ecliptica/');
+    };
 
     if (!plant) {
         return <div>Plant not found</div>;
@@ -29,19 +43,37 @@ const Info = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                 }}>
-                    <Link to="/ecliptica/" style={{ textDecoration: 'none' }}>
+                    <Link to="/ecliptica/" style={{textDecoration: 'none'}}>
                         <Text
                             color='#333333'
                             fontSize='30px'
-                            style={{ textAlign: 'left', margin: '0', cursor: 'pointer' }}
+                            style={{textAlign: 'left', margin: '0', cursor: 'pointer'}}
                         >
                             My Plants
                         </Text>
                     </Link>
-                    {/* Calendar Button */}
-                    <Link to="/ecliptica/" style={{marginLeft: '1000px', justifyContent: 'flex-end'}}>
-                        {<img src={addIcon} style={{ width: '50px', height: '50px'}} />}
-                    </Link>
+
+                    {!plantExists ? (
+                        <button onClick={addToMyPlants} style={{
+                            marginLeft: '1000px',
+                            justifyContent: 'flex-end',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer'
+                        }}>
+                            <img src={addIcon} style={{width: '50px', height: '50px'}} alt="Add to My Plants"/>
+                        </button>
+                    ) : (
+                        <button onClick={removeFromMyPlants} style={{
+                            marginLeft: '1000px',
+                            justifyContent: 'flex-end',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer'
+                        }}>
+                            <img src={removeIcon} style={{width: '50px', height: '50px'}} alt="Remove from My Plants"/>
+                        </button>
+                    )}
                 </div>
             </AppBar>
             <div className="info-container">
