@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import './info.css';
 import AppBar from '../compoments/AppBar';
 import Text from '../compoments/Text';
@@ -38,7 +38,7 @@ const Info = () => {
     return (
         <div>
             <AppBar>
-                <div style={{
+                <div className={"info-container"} style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
