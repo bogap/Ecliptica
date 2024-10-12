@@ -34,8 +34,10 @@ export default function DayCard(props: { day: number, plant: any }) {
             flex-direction: column;
             border: 1px solid black;
             width: 100%;
-            height: 90vh;
-            background-color: ${props.plant ? backgroundColor : '#00e600'}`}>
+            height: calc(100vh - 10vh);
+            background-color: ${props.plant ? backgroundColor : '#00e600'};
+            overflow: hidden;
+        `}>
             <div id='date' className={css`
                 border-bottom: 1px solid black;
                 height: 10vh;

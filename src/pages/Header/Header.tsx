@@ -28,8 +28,10 @@ export default function Header({ onCalendarViewChange }) {
             className={css`
                 display: flex;
                 align-items: center;
-                background-color: #9aceeb;
+                background-color: #2c3e50;
                 padding: 0 20px;
+                height: auto; /* Adjusted */
+                overflow: hidden; /* Prevent overflow */
             `}
         >
             <Box id='logo' sx={{ marginRight: '20px' }}>
@@ -45,7 +47,7 @@ export default function Header({ onCalendarViewChange }) {
             <Box id='navigation' display="flex" alignItems="center">
                 <Button
                     variant="text"
-                    color="secondary"
+                    color={location.pathname === '/ecliptica/' ? 'secondary' : 'primary'}
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
@@ -66,7 +68,7 @@ export default function Header({ onCalendarViewChange }) {
                         sx={{
                             marginLeft: '5px',
                             textTransform: 'none',
-                            fontWeight: 'bold',
+                            color: '#ffffff'
                         }}
                         variant='body1'
                     >
@@ -75,7 +77,7 @@ export default function Header({ onCalendarViewChange }) {
                 </Button>
                 <Button
                     variant="text"
-                    color="secondary"
+                    color={location.pathname === '/ecliptica/calendar' ? 'secondary' : 'primary'}
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
@@ -96,7 +98,7 @@ export default function Header({ onCalendarViewChange }) {
                         sx={{
                             marginLeft: '5px',
                             textTransform: 'none',
-                            fontWeight: 'bold',
+                            color: '#ffffff'
                         }}
                     >
                         Calendar
@@ -129,7 +131,7 @@ export default function Header({ onCalendarViewChange }) {
                             <Typography
                                 sx={{
                                     textTransform: 'none',
-                                    fontWeight: 'bold',
+                                    color: '#ffffff'
                                 }}
                             >
                                 3-Day View
@@ -157,7 +159,7 @@ export default function Header({ onCalendarViewChange }) {
                             <Typography
                                 sx={{
                                     textTransform: 'none',
-                                    fontWeight: 'bold',
+                                    color: '#ffffff'
                                 }}
                             >
                                 7-Day View
