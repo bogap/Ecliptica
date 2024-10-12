@@ -1,10 +1,10 @@
 import {css} from "@emotion/css";
-import LargeDay from "../LargeDay/LargeDay";
+import DayCard from "../DayCard/DayCard";
 import React, {useState, useEffect} from "react";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 
-export default function SmallCalendar() {
+export default function MonthlyCalendar() {
     const [plantData, setPlantData] = useState([]);
     const [error, setError] = useState('');
     const [wateredPlants, setWateredPlants] = useState({});
@@ -41,10 +41,12 @@ export default function SmallCalendar() {
             <div id='calendars' className={css`
                 display: flex;
             `}>
-                {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                    21, 22, 23, 24, 25, 26, 27, 28, 29].map(dayOffset => {
                     const plantForDay = getPlantForDay(dayOffset);
                     return (
-                        <LargeDay
+                        <DayCard
                             key={dayOffset}
                             day={dayOffset}
                             plant={plantForDay} // Pass the plant data or null if no plant matches

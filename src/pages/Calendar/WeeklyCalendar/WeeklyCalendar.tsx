@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {css} from '@emotion/css'
+import {css} from "@emotion/css";
 import DayCard from "../DayCard/DayCard";
+import React, {useState, useEffect} from "react";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 
-export default function BigCalendar() {
+export default function WeeklyCalendar() {
     const [plantData, setPlantData] = useState([]);
     const [error, setError] = useState('');
 
@@ -33,19 +33,23 @@ export default function BigCalendar() {
     if (error) {
         return <h2>Error: {error}</h2>;
     }
-    return (<>
-        <div id='calendars' className={css`
-            display: flex;`}>
-            {[0, 1, 2].map(dayOffset => {
-                const plantForDay = getPlantForDay(dayOffset);
-                return (
-                    <DayCard
-                        key={dayOffset}
-                        day={dayOffset}
-                        plant={plantForDay}
-                    />
-                );
-            })}
-        </div>
-    </>)
+
+    return (
+        <>
+            <div id='calendars' className={css`
+                display: flex;
+            `}>
+                {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
+                    const plantForDay = getPlantForDay(dayOffset);
+                    return (
+                        <DayCard
+                            key={dayOffset}
+                            day={dayOffset}
+                            plant={plantForDay} // Pass the plant data or null if no plant matches
+                        />
+                    );
+                })}
+            </div>
+        </>
+    );
 }

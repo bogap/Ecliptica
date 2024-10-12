@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
 
 
-export default function LargeDay(props: { day: number, plant: any }) {
+export default function DayCard(props: { day: number, plant: any }) {
     const [wateredButtonText, setWateredButtonText] = useState("WATERED");
     const [backgroundColor, setBackgroundColor] = useState('#fd7c6e');
     const [wateredButtonColor, setWateredButtonColor] = useState('secondary')

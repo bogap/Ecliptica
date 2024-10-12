@@ -3,8 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link, Navigate} from 'react-rout
 import Home from './pages/Home/home';
 import Info from './pages/Info/info';
 import {getNavigationsValue} from "@brojs/cli";
-import BigCalendar from "./pages/Calendar/BigCalendar/BigCalendar";
-import SmallCalendar from "./pages/Calendar/SmallCalendar/SmallCalendar";
+import CalendarPage from "./pages/Calendar/CalendarPage/CalendarPage";
 
 const App = () => {
     return (
@@ -12,7 +11,7 @@ const App = () => {
             <Routes>
                 <Route path={getNavigationsValue('ecliptica.main')} element={<Home/>}/>
                 <Route path={getNavigationsValue('ecliptica.info')} element={<Info/>}/>
-                <Route path={getNavigationsValue('ecliptica.calendar')} element={<SmallCalendar/>}/>
+                <Route path={getNavigationsValue('ecliptica.calendar')} element={<CalendarPage/>}/>
                 <Route path="*" element={<Navigate to="/ecliptica"/>}/>
             </Routes>
         </Router>

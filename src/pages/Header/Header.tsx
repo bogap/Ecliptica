@@ -1,53 +1,77 @@
-import React from 'react';
-import {css} from "@emotion/css";
-import mainLogo from "../../../public/app_logo.png";
+import React, { useState } from 'react';
+import { css } from "@emotion/css";
+import { useLocation } from "react-router-dom";
+import mainLogo from '../../../public/app_logo.png';
 import Typography from '@mui/material/Typography';
-import {getNavigationsValue} from "@brojs/cli";
+import { getNavigationsValue } from "@brojs/cli";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import ViewWeekIcon from '@mui/icons-material/ViewWeek';
+import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek';
 
-export default function Header() {
+export default function Header({ onCalendarViewChange }) {
+    const location = useLocation();
+    const [calendarView, setCalendarView] = useState('weekly');
+
+    const handleCalendarViewChange = (view) => {
+        setCalendarView(view);
+        if (onCalendarViewChange) {
+            onCalendarViewChange(view);
+        }
+    };
+
     return (
         <Box
             id='main'
             className={css`
                 display: flex;
-                background-color: #9aceeb;
-                height: 5vh;
                 align-items: center;
-                padding: 0 50px;
-            `}>
-            <Box id='logo'>
+                background-color: #9aceeb;
+                padding: 0 20px;
+            `}
+        >
+            <Box id='logo' sx={{ marginRight: '20px' }}>
                 <img
                     src={mainLogo}
                     alt='Ecliptica Logo'
-                    className={css`height: 5vh;
-                        width: 5vh;`}
+                    className={css`
+                        height: 55px;
+                        width: auto;
+                    `}
                 />
             </Box>
-            <Box id='navigation' display="flex" justifyContent="flex-start">
+            <Box id='navigation' display="flex" alignItems="center">
                 <Button
                     variant="text"
                     color="secondary"
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        padding: '10px 30px',
+                        padding: '5px 10px',
+                        fontSize: '14px',
                         transition: 'background-color 0.3s, transform 0.7s',
                         '&:hover': {
                             backgroundColor: '#007bbf',
                             borderRadius: '10px',
                             color: 'white',
-                            transform: 'scale(1.05)'
-                        }
+                            transform: 'scale(1.05)',
+                        },
                     }}
                     href={getNavigationsValue('ecliptica.main')}
                 >
                     <HomeIcon/>
-                    <Typography variant="h4"
-                                sx={{marginLeft: '8px', textTransform: 'none', fontWeight: "bold"}}>Home</Typography>
+                    <Typography
+                        sx={{
+                            marginLeft: '5px',
+                            textTransform: 'none',
+                            fontWeight: 'bold',
+                        }}
+                        variant='body1'
+                    >
+                        Home
+                    </Typography>
                 </Button>
                 <Button
                     variant="text"
@@ -55,24 +79,92 @@ export default function Header() {
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        padding: '10px 30px',
+                        padding: '5px 10px',
+                        fontSize: '14px',
                         transition: 'background-color 0.3s, transform 0.7s',
                         '&:hover': {
                             backgroundColor: '#007bbf',
                             borderRadius: '10px',
                             color: 'white',
-                            transform: 'scale(1.05)'
-                        }
+                            transform: 'scale(1.05)',
+                        },
                     }}
                     href={getNavigationsValue('ecliptica.calendar')}
                 >
                     <CalendarTodayIcon/>
-                    <Typography variant="h4" sx={{
-                        marginLeft: '8px',
-                        textTransform: 'none',
-                        fontWeight: "bold"
-                    }}>Calendar</Typography>
+                    <Typography
+                        sx={{
+                            marginLeft: '5px',
+                            textTransform: 'none',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Calendar
+                    </Typography>
                 </Button>
+
+                {location.pathname === '/ecliptica/calendar' && (
+                    <Box display="flex" marginLeft="20px">
+                        <Button
+                            variant="text"
+                            color={calendarView === 'weekly' ? 'primary' : 'secondary'}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                padding: '5px 10px',
+                                fontSize: '14px',
+                                marginRight: '10px',
+                                marginLeft: '50px',
+                                transition: 'background-color 0.3s, transform 0.7s',
+                                '&:hover': {
+                                    backgroundColor: '#007bbf',
+                                    borderRadius: '10px',
+                                    color: 'white',
+                                    transform: 'scale(1.05)',
+                                },
+                            }}
+                            onClick={() => handleCalendarViewChange('big')}
+                        >
+                            <ViewWeekIcon sx={{ marginRight: '5px' }} />
+                            <Typography
+                                sx={{
+                                    textTransform: 'none',
+                                    fontWeight: 'bold',
+                                }}
+                            >
+                                3-Day View
+                            </Typography>
+                        </Button>
+                        <Button
+                            variant="text"
+                            color={calendarView === 'big' ? 'primary' : 'secondary'}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                padding: '5px 10px',
+                                fontSize: '14px',
+                                transition: 'background-color 0.3s, transform 0.7s',
+                                '&:hover': {
+                                    backgroundColor: '#007bbf',
+                                    borderRadius: '10px',
+                                    color: 'white',
+                                    transform: 'scale(1.05)',
+                                },
+                            }}
+                            onClick={() => handleCalendarViewChange('weekly')}
+                        >
+                            <CalendarViewWeekIcon sx={{ marginRight: '5px' }} />
+                            <Typography
+                                sx={{
+                                    textTransform: 'none',
+                                    fontWeight: 'bold',
+                                }}
+                            >
+                                7-Day View
+                            </Typography>
+                        </Button>
+                    </Box>
+                )}
             </Box>
         </Box>
     );
