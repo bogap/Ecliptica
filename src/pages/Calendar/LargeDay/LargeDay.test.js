@@ -8,8 +8,11 @@ const mockDate = new Date();
 const mockDayOffset = 0;
 
 describe('LargeDay Component', () => {
-    test('renders the correct date based on the day prop', () => {
-        render(<LargeDay day={mockDayOffset} plant={{name: 'Fern', image: 'fern.png'}}/>);
+    test('checks the date', () => {
+        render(<LargeDay day={mockDayOffset} plant={{
+            name: 'Cactus',
+            image: 'https://avatars.mds.yandex.net/i?id=eb69cd6e6d9610f1ed6801c530276ab0_l-10696380-images-thumbs&n=13'
+        }}/>);
 
         const expectedDate = new Date(mockDate);
         expectedDate.setDate(expectedDate.getDate() + mockDayOffset);
