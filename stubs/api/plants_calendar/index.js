@@ -1,10 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const app = express();
-const port = 5000;
-
-app.use(cors());
+const plantsRouter = express.Router()
 
 const plants = [
     {
@@ -39,10 +36,8 @@ const plantsWithDates = plants.map(plant => ({
     wateringDates: calculateWateringDates(plant.startDate, plant.frequency),
 }));
 
-app.get('/api/plants', (req, res) => {
+plantsWithDates.get('/api/plants', (req, res) => {
     res.json(plantsWithDates);
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+module.exports = plantsRouter;

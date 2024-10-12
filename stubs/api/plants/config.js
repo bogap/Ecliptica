@@ -1,0 +1,6 @@
+const CONFIG = {
+    CLIENT_ID: 'kD2JXj1faSCYAWdT4B069wQAx89CZAkXmzTinRvH',
+    CLIENT_SECRET: 'bJq7Uiwua52tHiLP80N60hALNtQX2wcE4Mj6yNA9OzG2iZbgHuqyeAs6WSWX6MNJdfv0Nqzb7OHta8qPZr4zxWBLTauleaMfraln3xFEvbXLDpi1Lcrwe7DxfgsQQ1E4',
+};
+
+module.exports = CONFIG;
