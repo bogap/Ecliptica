@@ -16,9 +16,16 @@ export default function LargeDay(props: { day: number, plant: any }) {
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
 
     function handleWatered() {
-        setWateredButtonText("NOT WATERED")
-        setBackgroundColor('#00e600')
-        setWateredButtonColor('error')
+        if (wateredButtonText == 'WATERED') {
+            setWateredButtonText("NOT WATERED")
+            setBackgroundColor('#00e600')
+            setWateredButtonColor('error')
+        } else {
+            setWateredButtonText("WATERED")
+            setBackgroundColor('#fd7c6e')
+            setWateredButtonColor('secondary')
+        }
+
     }
 
     return (<>
@@ -34,9 +41,11 @@ export default function LargeDay(props: { day: number, plant: any }) {
                 height: 10vh;
                 text-align: center;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;`}>
-                <Typography variant='h4'>{dayName}<br/> {day} {month}</Typography>
+                <Typography variant='h4'>{dayName}</Typography>
+                <Typography variant='h4'>{day} {month}</Typography>
             </div>
             <div id='info' className={css`
                 padding: 20px;
@@ -56,7 +65,21 @@ export default function LargeDay(props: { day: number, plant: any }) {
                     <Typography variant="h5">No plant</Typography>
                 )}
             </div>
-            <Button variant="contained" color={wateredButtonColor} onClick={handleWatered}>{wateredButtonText}</Button>
+            <div className={css`display: flex;
+                justify-content: center`}>
+                <div>
+                    {props.plant ? (
+                        <Button
+                            variant="contained"
+                            color={wateredButtonColor === 'error' ? 'error' : 'secondary'}
+                            onClick={handleWatered}>
+                            {wateredButtonText}
+                        </Button>
+                    ) : <></>}
+                </div>
+
+            </div>
+
         </div>
     </>)
 }
