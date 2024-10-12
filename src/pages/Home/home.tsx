@@ -8,7 +8,7 @@ import AppBar from '../compoments/AppBar';
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
-import './Home.css';
+import './Home.css';  // Import CSS
 
 const Home = () => {
     const [plants, setPlants] = useState([]);
@@ -26,11 +26,9 @@ const Home = () => {
     useEffect(() => {
         const fetchPlants = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/plants/list',
-                    {
-                        params: { alias: searchTerm || 'a' }
-                    }
-                );
+                const response = await axios.get('http://localhost:3000/plants/list', {
+                    params: { alias: searchTerm || 'a' }
+                });
                 setPlants(response.data.results);
                 setLoading(false);
             } catch (err) {
@@ -51,20 +49,20 @@ const Home = () => {
     }
 
     return (
-        <div className="home-container" style={{ padding: '0', margin: '0 auto' }}>
+        <div className="home-container">
             <AppBar>
-                <div className="header-container"> {/* Added CSS class for styling */}
+                <div className="header-container">
                     {/* Title */}
                     <Text
                         color='#333333'
                         fontSize='30px'
-                        style={{ textAlign: 'left', margin: '0' }}
+                        className="title-text"
                     >
                         My Plants
                     </Text>
 
-                    {/* Search Bar */}
-                    <div className="search-container"> {/* Added CSS class for styling */}
+                    {/* Search Bar and Calendar */}
+                    <div className="search-container">
                         {/* Search Bar */}
                         <PlantSearch
                             query={searchTerm}
@@ -72,24 +70,23 @@ const Home = () => {
                             placeholder="Search plants..."
                         />
                         {/* Calendar Button */}
-                        <Link to="/ecliptica/calendar" style={{ marginLeft: '10px' }}>
-                            {<img src={calendarIcon} style={{ width: '50px', height: '50px' }} />}
+                        <Link to="/ecliptica/calendar" className="calendar-link">
+                            <img src={calendarIcon} className="calendar-icon" alt="Calendar" />
                         </Link>
                     </div>
                 </div>
             </AppBar>
 
-            <div className="grid-container" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+            <div className="grid-container">
                 <Grid>
                     {searchTerm === '' ? (
-                        // Saved plants
                         userPlants.length > 0 ? (
                             userPlants.map((plant) => (
                                 <Link
                                     key={plant.id}
                                     to={`/ecliptica/info/${plant.id}`}
-                                    state={{ plant }} // Pass the plant object to the Info page
-                                    style={{ textDecoration: 'none' }}
+                                    state={{ plant }}
+                                    className="plant-link"
                                 >
                                     <PlantCard name={plant.alias} imageUrl={plant.image_url} />
                                 </Link>
@@ -98,14 +95,13 @@ const Home = () => {
                             <p>Add plants to your collection!</p>
                         )
                     ) : (
-                        // Search results
                         plants.length > 0 ? (
                             plants.map((plant) => (
                                 <Link
                                     key={plant.id}
                                     to={`/ecliptica/info/${plant.id}`}
                                     state={{ plant }}
-                                    style={{ textDecoration: 'none' }}
+                                    className="plant-link"
                                 >
                                     <PlantCard name={plant.alias} imageUrl={plant.image_url} />
                                 </Link>

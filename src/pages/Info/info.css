@@ -8,14 +8,36 @@
     height: 200px;
     object-fit: cover;
     border-radius: 30%;
-    margin-bottom: 20px;
 }
 
 .info-container h1 {
     font-size: 2rem;
-    margin-bottom: 10px;
 }
 
 .info-container p {
     font-size: 1.2rem;
+}
+
+
+.my-plants-link {
+    text-decoration: none;
+}
+
+.my-plants-text {
+    text-align: left;
+    margin: 0;
+    cursor: pointer;
+}
+
+.icon-button {
+    margin-left: 1000px;
+    justify-content: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-image {
+    width: 50px;
+    height: 50px;
 }
