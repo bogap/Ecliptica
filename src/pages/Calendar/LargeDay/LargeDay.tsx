@@ -71,11 +71,8 @@ export default function LargeDay(props: { day: number, plant: any }) {
                     {props.plant ? (
                         <Button
                             variant="contained"
-                            sx={{
-                                color: {
-                                    wateredButtonColor
-                                }
-                            }} onClick={handleWatered}>
+                            color={wateredButtonColor === 'error' ? 'error' : 'secondary'}
+                            onClick={handleWatered}>
                             {wateredButtonText}
                         </Button>
                     ) : <></>}
