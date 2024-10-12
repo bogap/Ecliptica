@@ -8,7 +8,7 @@ import AppBar from '../compoments/AppBar';
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
-import './Home.css';  // Import CSS
+import './Home.css';
 
 const Home = () => {
     const [plants, setPlants] = useState([]);
