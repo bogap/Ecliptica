@@ -2,12 +2,16 @@ import React, {useEffect, useState} from "react";
 import {css} from '@emotion/css'
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
+import WaterIcon from '@mui/icons-material/Water';
+import ClearIcon from '@mui/icons-material/Clear';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 
 export default function DayCard(props: { day: number, plant: any }) {
-    const [wateredButtonText, setWateredButtonText] = useState("WATERED");
+    const [wateredButtonText, setWateredButtonText] = useState("Watered");
     const [backgroundColor, setBackgroundColor] = useState('#fd7c6e');
     const [wateredButtonColor, setWateredButtonColor] = useState('secondary')
+    const [isWatered, setIsWatered] = useState(false);
 
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + props.day);
@@ -16,14 +20,17 @@ export default function DayCard(props: { day: number, plant: any }) {
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
 
     function handleWatered() {
-        if (wateredButtonText == 'WATERED') {
-            setWateredButtonText("NOT WATERED")
+        console.log(wateredButtonText)
+        if (wateredButtonText === 'Watered') {
+            setWateredButtonText("Not watered")
             setBackgroundColor('#00e600')
             setWateredButtonColor('error')
+            setIsWatered(true);
         } else {
-            setWateredButtonText("WATERED")
+            setWateredButtonText("Watered")
             setBackgroundColor('#fd7c6e')
             setWateredButtonColor('secondary')
+            setIsWatered(false);
         }
 
     }
@@ -32,22 +39,30 @@ export default function DayCard(props: { day: number, plant: any }) {
         <div id='main' className={css`
             display: flex;
             flex-direction: column;
-            border: 1px solid black;
             width: 100%;
-            height: calc(100vh - 10vh);
+            height: 90vh;
             background-color: ${props.plant ? backgroundColor : '#00e600'};
             overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 5px;
         `}>
             <div id='date' className={css`
-                border-bottom: 1px solid black;
-                height: 10vh;
+                height: 15vh;
                 text-align: center;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;`}>
-                <Typography variant='h4'>{dayName}</Typography>
-                <Typography variant='h4'>{day} {month}</Typography>
+                justify-content: center;
+                background-color: rgba(255, 255, 255, 0.5);`}>
+                <CalendarTodayIcon color="action"/>
+                <Typography variant='h5' marginTop='5px'>{dayName}</Typography>
+                <div className={css`display: flex;
+                    gap: 10px`}>
+                    <Typography variant='h5' color='#1976d2'>{day}</Typography>
+                    <Typography variant='h6'>{month}</Typography>
+                </div>
+
             </div>
             <div id='info' className={css`
                 padding: 20px;
@@ -74,7 +89,8 @@ export default function DayCard(props: { day: number, plant: any }) {
                         <Button
                             variant="contained"
                             color={wateredButtonColor === 'error' ? 'error' : 'secondary'}
-                            onClick={handleWatered}>
+                            onClick={handleWatered}
+                            startIcon={isWatered ? <ClearIcon/> : <WaterIcon/>}>
                             {wateredButtonText}
                         </Button>
                     ) : <></>}
