@@ -19,41 +19,31 @@ const fetcher = async (url: string) => {
 };
 
 export default function WeeklyCalendar() {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [userPlants, setUserPlants] = useState([]);
 
     // fetch plants
     const {data: plants, error, isValidating: loading} = useSWR(
-        `${getConfigValue('ecliptica.backend')}/plants/search?alias=a`,
+        `${getConfigValue('ecliptica.backend')}/plants/list/plants/list?alias=a`,
         fetcher
     );
 
-    // function getPlantForDay(dayOffset: number) {
-    //     const currentDate = new Date();
-    //     currentDate.setDate(currentDate.getDate() + dayOffset);
-    //     const formattedDate = currentDate.toISOString().split('T')[0];
-    //
-    //     return plantData.find(plant => plant.wateringDates.includes(formattedDate)) || null;
-    // }
+    // Render loading, error, or plants
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error loading plants: {error.message}</div>;
 
     console.log(plants)
 
     return (
-        <>
-            <div id='calendars' className={css`
-                display: flex;
-            `}>
-                {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
-                    // const plantForDay = getPlantForDay(dayOffset);
-                    return (
-                        <DayCard
-                            key={dayOffset}
-                            day={dayOffset}
-                            plant={plants.results[0]} // Pass the plant data or null if no plant matches
-                        />
-                    );
-                })}
-            </div>
-        </>
+        <div id="calendars" className={css` display: flex; `}>
+            {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
+                const plant = plants?.results ? plants.results[dayOffset] : null;
+                return (
+                    <DayCard
+                        key={dayOffset}
+                        day={dayOffset}
+                        plant={plant}
+                    />
+                );
+            })}
+        </div>
     );
 }
