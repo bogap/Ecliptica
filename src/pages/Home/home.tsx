@@ -95,8 +95,8 @@ const Home = () => {
                             <p>Add plants to your collection!</p>
                         )
                     ) : (
-                        plants.length > 0 ? (
-                            plants.map((plant) => (
+                        plants && plants.results.length > 0 ? (
+                            plants.results.map((plant) => (
                                 <Link
                                     key={plant.id}
                                     to={`/ecliptica/info/${plant.id}`}
