@@ -6,6 +6,7 @@ import Footer from "../../Footer/Footer";
 import useSWR from "swr";
 import {getConfigValue} from '@brojs/cli';
 import axios from "axios";
+import useSWRImmutable from "swr/immutable";
 
 const fetcher = async (url: string) => {
     try {
@@ -21,14 +22,9 @@ const fetcher = async (url: string) => {
 export default function WeeklyCalendar() {
 
     // fetch plants
-    const {data: plants, error, isValidating: loading} = useSWR(
+    const {data: plants, error, isValidating: loading} = useSWRImmutable(
         `${getConfigValue('ecliptica.backend')}/plants/list?alias=a`,
-        fetcher,
-        {
-            revalidateIfStale: false,
-            revalidateOnFocus: false,
-            revalidateOnReconnect: false
-        }
+        fetcher
     );
 
     // Render loading, error, or plants

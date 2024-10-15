@@ -67,7 +67,7 @@ export default function DayCard(props: { day: number, plant: any }) {
             <Link
                 key={props.plant.id}
                 to={`/ecliptica/info/${props.plant.id}`}
-                state={{props.plant}}
+                state={props.plant}
                 className="plant-link"
             >
                 <div id='info' className={css`
