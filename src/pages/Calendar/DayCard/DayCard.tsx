@@ -64,31 +64,38 @@ export default function DayCard(props: { day: number, plant: any }) {
                 </div>
 
             </div>
-            <Link
-                key={props.plant.id}
-                to={`/ecliptica/info/${props.plant.id}`}
-                state={props.plant}
-                className="plant-link"
-            >
+
+            {props.plant ? (
+                <Link
+                    key={props.plant.id}
+                    to={`/ecliptica/info/${props.plant.id}`}
+                    state={props.plant}
+                    className="plant-link"
+                >
+                    <div id='info' className={css`
+                        padding: 20px;
+                        text-align: center;`}>
+                        <Typography variant="h5">{props.plant.alias}</Typography>
+                        <img
+                            src={props.plant.image_url}
+                            alt={props.plant.alias}
+                            className={css`
+                                max-width: 100%;
+                                height: auto;
+                                border-radius: 15px;
+                                margin-top: 20px;
+                            `}
+                        />
+                    </div>
+                </Link>
+            ) : (
                 <div id='info' className={css`
                     padding: 20px;
                     text-align: center;`}>
-                    {props.plant ? (
-                        <>
-                            <Typography variant="h5">{props.plant.alias}</Typography>
-                            <img src={props.plant.image_url} alt={props.plant.alias}
-                                 className={css`
-                                     max-width: 100%;
-                                     height: auto;
-                                     border-radius: 15px;
-                                     margin-top: 20px;
-                                 `}/>
-                        </>
-                    ) : (
-                        <Typography variant="h5">No plant</Typography>
-                    )}
+                    <Typography variant="h5">No plant</Typography>
                 </div>
-            </Link>
+            )}
+
             <div className={css`display: flex;
                 justify-content: center`}>
                 <div>
