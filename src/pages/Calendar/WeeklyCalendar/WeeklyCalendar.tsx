@@ -25,8 +25,9 @@ export default function WeeklyCalendar() {
         `${getConfigValue('ecliptica.backend')}/plants/list?alias=a`,
         fetcher,
         {
+            revalidateIfStale: false,
             revalidateOnFocus: false,
-            refreshInterval: 0,
+            revalidateOnReconnect: false
         }
     );
 

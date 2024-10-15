@@ -20,7 +20,6 @@ export default function DayCard(props: { day: number, plant: any }) {
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
 
     function handleWatered() {
-        console.log(wateredButtonText)
         if (wateredButtonText === 'Watered') {
             setWateredButtonText("Not watered")
             setBackgroundColor('#00e600')
@@ -69,8 +68,8 @@ export default function DayCard(props: { day: number, plant: any }) {
                 text-align: center;`}>
                 {props.plant ? (
                     <>
-                        <Typography variant="h5">{props.plant.name}</Typography>
-                        <img src={props.plant.image} alt={props.plant.name}
+                        <Typography variant="h5">{props.plant.alias}</Typography>
+                        <img src={props.plant.image_url} alt={props.plant.alias}
                              className={css`
                                  max-width: 100%;
                                  height: auto;
