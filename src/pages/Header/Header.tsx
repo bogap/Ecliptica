@@ -28,10 +28,11 @@ export default function Header({ onCalendarViewChange }) {
             className={css`
                 display: flex;
                 align-items: center;
-                background-color: #2c3e50;
+                background-color: #eff1ed;
+                font-size: 30px;
                 padding: 0 20px;
-                height: auto; /* Adjusted */
-                overflow: hidden; /* Prevent overflow */
+                height: auto;
+                overflow: hidden;
             `}
         >
             <Box id='logo' sx={{ marginRight: '20px' }}>
@@ -63,16 +64,16 @@ export default function Header({ onCalendarViewChange }) {
                     }}
                     href={getNavigationsValue('ecliptica.main')}
                 >
-                    <HomeIcon/>
+                    {/*<HomeIcon/>*/}
                     <Typography
                         sx={{
                             marginLeft: '5px',
                             textTransform: 'none',
-                            color: '#ffffff'
+                            color: '#333333'
                         }}
                         variant='body1'
                     >
-                        Home
+                        MY PLANTS
                     </Typography>
                 </Button>
                 <Button
@@ -98,7 +99,7 @@ export default function Header({ onCalendarViewChange }) {
                         sx={{
                             marginLeft: '5px',
                             textTransform: 'none',
-                            color: '#ffffff'
+                            color: '#333333'
                         }}
                     >
                         Calendar
@@ -131,7 +132,7 @@ export default function Header({ onCalendarViewChange }) {
                             <Typography
                                 sx={{
                                     textTransform: 'none',
-                                    color: '#ffffff'
+                                    color: '#333333'
                                 }}
                             >
                                 3-Day View
@@ -159,7 +160,7 @@ export default function Header({ onCalendarViewChange }) {
                             <Typography
                                 sx={{
                                     textTransform: 'none',
-                                    color: '#ffffff'
+                                    color: '#333333'
                                 }}
                             >
                                 7-Day View
