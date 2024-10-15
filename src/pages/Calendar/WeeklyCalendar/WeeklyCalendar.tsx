@@ -24,7 +24,7 @@ export default function WeeklyCalendar() {
 
     // fetch plants
     const {data: plants, error, isValidating: loading} = useSWR(
-        `${getConfigValue('ecliptica.backend')}/plants/list?alias=${searchTerm || 'a'}`,
+        `${getConfigValue('ecliptica.backend')}/plants/list`,
         fetcher
     );
 
@@ -49,7 +49,7 @@ export default function WeeklyCalendar() {
                         <DayCard
                             key={dayOffset}
                             day={dayOffset}
-                            plant={plants[0]} // Pass the plant data or null if no plant matches
+                            plant={plants.results[0]} // Pass the plant data or null if no plant matches
                         />
                     );
                 })}
