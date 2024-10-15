@@ -55,13 +55,12 @@ const Info = () => {
                         />
                     </Box>
                     {/* Title */}
-                    <Text
-                        color='#333333'
-                        fontSize='30px'
-                        className="title-text"
-                    >
-                        My Plants
-                    </Text>
+                    <Link to="/ecliptica/" className="my-plants-link">
+                        <Text color='#333333' fontSize='30px' className="my-plants-text">
+                            My Plants
+                        </Text>
+                    </Link>
+
                         {!plantExists ? (
                             <button onClick={addToMyPlants} className="icon-button">
                                 <img src={addIcon} className="icon-image" alt="Add to My Plants" />
