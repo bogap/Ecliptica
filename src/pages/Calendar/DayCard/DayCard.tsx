@@ -71,6 +71,7 @@ export default function DayCard(props: { day: number, plant: any }) {
                     to={`/ecliptica/info/${props.plant.id}`}
                     state={{plant}}
                     className="plant-link"
+                    color='#1976d2'
                 >
                     <div id='info' className={css`
                         padding: 20px;
