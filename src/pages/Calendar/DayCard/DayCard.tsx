@@ -19,7 +19,7 @@ export default function DayCard(props: { day: number, plant: any }) {
     const day = currentDate.getDate();
     const dayName = currentDate.toUTCString().split(",")[0];
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
-
+    const plant = props.plant;
     function handleWatered() {
         if (wateredButtonText === 'Watered') {
             setWateredButtonText("Not watered")
@@ -69,7 +69,7 @@ export default function DayCard(props: { day: number, plant: any }) {
                 <Link
                     key={props.plant.id}
                     to={`/ecliptica/info/${props.plant.id}`}
-                    state={props.plant}
+                    state={{plant}}
                     className="plant-link"
                 >
                     <div id='info' className={css`
