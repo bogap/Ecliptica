@@ -8,7 +8,9 @@ import Text from '../compoments/Text';
 import addIcon from '../compoments/imgs/add.png';
 // @ts-ignore
 import removeIcon from '../compoments/imgs/remove.png';
-import mainLogo from "../../../public/app_logo.png";
+// @ts-ignore
+import mainLogo from "../../../public/app_logo.png"
+import Footer from "../Footer/Footer";
 import {css} from "@emotion/css";
 import Box from "@mui/material/Box";
 
@@ -78,6 +80,7 @@ const Info = () => {
                 <p><strong>Soil Moisture Range:</strong> {plant.min_soil_moist} - {plant.max_soil_moist}</p>
                 <p><strong>Soil EC Range:</strong> {plant.min_soil_ec} - {plant.max_soil_ec} dS/m</p>
             </div>
+            <Footer />
         </div>
     );
 };
