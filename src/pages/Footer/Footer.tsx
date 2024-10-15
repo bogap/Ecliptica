@@ -11,7 +11,7 @@ export default function Footer() {
             <div id='main'
                  className={css`
                      display: flex;
-                     background-color: #2c3e50;
+                     background-color: #eff1ed;
                      height: 5vh;
                      width: 100%;
                      overflow: hidden;
@@ -19,7 +19,7 @@ export default function Footer() {
                      gap: 100px;
                  `}>
                 <div>
-                    <Typography variant="body1" sx={{fontWeight: '100', marginLeft: '20px', color: '#ffffff'}}>
+                    <Typography variant="body1" sx={{fontWeight: '100', marginLeft: '20px', color: '#333333'}}>
                         © 2024 Ecliptica Team
                     </Typography>
                 </div>
@@ -29,13 +29,13 @@ export default function Footer() {
                          overflow: hidden;
                          align-items: center;`}>
                     <div id='team_name'>
-                        <Typography variant="h5" sx={{fontWeight: '100', color: '#ffffff'}}>Follow us:</Typography>
+                        <Typography variant="h5" sx={{fontWeight: '100', color: '#333333'}}>Follow us:</Typography>
                     </div>
                     <div id='github'>
                         <a href='https://github.com/ch3rnushka/Ecliptica'>
                             <GitHubIcon sx={{
                                 fontSize: '2rem',
-                                color: '#ffffff',
+                                color: 'black',
                                 paddingLeft: '20px',
                                 transition: 'transform 0.3s'
                             }}
@@ -48,7 +48,7 @@ export default function Footer() {
                         <a href='https://t.me'>
                             <TelegramIcon sx={{
                                 fontSize: '2rem',
-                                color: '#3dcef2',
+                                color: '#black',
                                 paddingLeft: '20px',
                                 transition: 'transform 0.3s'
                             }}
@@ -61,7 +61,7 @@ export default function Footer() {
                         <a href='mailto:student@innopolis.university'>
                             <EmailIcon sx={{
                                 fontSize: '2rem',
-                                color: '#ffffff',
+                                color: 'black',
                                 paddingLeft: '20px',
                                 transition: 'transform 0.3s'
                             }}
