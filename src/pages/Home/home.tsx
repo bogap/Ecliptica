@@ -5,7 +5,9 @@ import Grid from "../compoments/Grid";
 import Text from '../compoments/Text';
 import PlantSearch from "../compoments/PlantSearch";
 import AppBar from '../compoments/AppBar';
-import mainLogo from '../../../public/app_logo.png';
+// @ts-ignore
+import mainLogo from "../../../public/app_logo.png";
+import Footer from "../Footer/Footer";
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
@@ -125,6 +127,7 @@ const Home = () => {
                     )}
                 </Grid>
             </div>
+            <Footer />
         </div>
     );
 };
