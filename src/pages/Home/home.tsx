@@ -15,18 +15,13 @@ import { getConfigValue } from '@brojs/cli';
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 const Home = () => {
-    // const [plants, setPlants] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-    // const [searchTerm, setSearchTerm] = useState('');
-    // const [userPlants, setUserPlants] = useState([]);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [userPlants, setUserPlants] = useState([]);
 
     // fetch plants
     const { data: plants, error, isValidating: loading } = useSWR(
-        `${getConfigValue('cats.backend')}/plants/list?alias=${searchTerm || 'a'}`,
+        `${getConfigValue('ecliptica.backend')}/plants/list?alias=${searchTerm || 'a'}`,
         fetcher
     );
 
@@ -36,11 +31,6 @@ const Home = () => {
         setUserPlants(savedPlants);
     }, []);
 
-    // useEffect(() => {
-    //     const savedPlants = JSON.parse(localStorage.getItem('userPlants') || '[]');
-    //     setUserPlants(savedPlants);
-    // }, []);
-
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -48,24 +38,6 @@ const Home = () => {
     if (error) {
         return <div>Error: {error.message}</div>;
     }
-
-    // useEffect(() => {
-    //     const fetchPlants = async () => {
-    //         try {
-    //             const response = await axios.get('http://localhost:3000/plants/list', {
-    //                 params: { alias: searchTerm || 'a' }
-    //             });
-    //             setPlants(response.data.results);
-    //             setLoading(false);
-    //         } catch (err) {
-    //             setError(err.message);
-    //             setLoading(false);
-    //         }
-    //     };
-    //
-    //     fetchPlants();
-    // }, [searchTerm]);
-
 
     return (
         <div className="home-container">
