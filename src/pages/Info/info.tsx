@@ -43,7 +43,7 @@ const Info = () => {
     return (
         <div>
             <AppBar>
-                <div className="info-container">
+                <div className="header-container">
                     <Box id='logo' sx={{ marginRight: '20px' }}>
                         <img
                             src={mainLogo}
