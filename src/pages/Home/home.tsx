@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import PlantCard from "../compoments/PlantCard";
 import Grid from "../compoments/Grid";
 import Text from '../compoments/Text';
@@ -13,7 +13,7 @@ import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
 import useSWR from 'swr'; //
 import './Home.css';
-import { getConfigValue } from '@brojs/cli';
+import {getConfigValue} from '@brojs/cli';
 import {css} from "@emotion/css";
 import Box from "@mui/material/Box";
 
@@ -35,9 +35,14 @@ const Home = () => {
     const [submittedTerm, setSubmittedTerm] = useState('');
 
     // fetch plants
-    const { data: plants, error, isValidating: loading } = useSWR(
+    const {data: plants, error, isValidating: loading} = useSWR(
         `${getConfigValue('ecliptica.backend')}/plants/list?alias=${submittedTerm || 'a'}`,
-        fetcher
+        fetcher,
+        {
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false
+        }
     );
 
     const handleKeyDown = (e) => {
@@ -64,14 +69,14 @@ const Home = () => {
         <div className="home-container">
             <AppBar>
                 <div className="header-container">
-                    <Box id='logo' sx={{ marginRight: '20px' }}>
+                    <Box id='logo' sx={{marginRight: '20px'}}>
                         <img
                             src={mainLogo}
                             alt='Ecliptica Logo'
                             className={css`
-                        height: 55px;
-                        width: auto;
-                    `}
+                                height: 55px;
+                                width: auto;
+                            `}
                         />
                     </Box>
                     {/* Title */}
@@ -109,10 +114,10 @@ const Home = () => {
                                 <Link
                                     key={plant.id}
                                     to={`/ecliptica/info/${plant.id}`}
-                                    state={{ plant }}
+                                    state={{plant}}
                                     className="plant-link"
                                 >
-                                    <PlantCard name={plant.alias} imageUrl={plant.image_url} />
+                                    <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
                                 </Link>
                             ))
                         ) : (
@@ -124,10 +129,10 @@ const Home = () => {
                                 <Link
                                     key={plant.id}
                                     to={`/ecliptica/info/${plant.id}`}
-                                    state={{ plant }}
+                                    state={{plant}}
                                     className="plant-link"
                                 >
-                                    <PlantCard name={plant.alias} imageUrl={plant.image_url} />
+                                    <PlantCard name={plant.alias} imageUrl={plant.image_url}/>
                                 </Link>
                             ))
                         ) : (
@@ -136,7 +141,7 @@ const Home = () => {
                     )}
                 </Grid>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 };
