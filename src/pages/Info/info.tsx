@@ -43,38 +43,35 @@ const Info = () => {
     return (
         <div>
             <AppBar>
-                <Box
-                    id="logo-title-container"
-                    sx={{ display: 'flex', alignItems: 'center' }} // Aligns items in one row
-                >
-                <Box id='logo' sx={{ marginRight: '20px' }}>
-                    <img
-                        src={mainLogo}
-                        alt='Ecliptica Logo'
-                        className={css`
-                        height: 55px;
-                        width: auto;
-                    `}
-                    />
-                </Box>
                 <div className="info-container">
-                    <Link to="/ecliptica/" className="my-plants-link">
-                        <Text color='#333333' fontSize='30px' className="my-plants-text">
-                            My Plants
-                        </Text>
-                    </Link>
-
-                    {!plantExists ? (
-                        <button onClick={addToMyPlants} className="icon-button">
-                            <img src={addIcon} className="icon-image" alt="Add to My Plants" />
-                        </button>
-                    ) : (
-                        <button onClick={removeFromMyPlants} className="icon-button">
-                            <img src={removeIcon} className="icon-image" alt="Remove from My Plants" />
-                        </button>
-                    )}
+                    <Box id='logo' sx={{ marginRight: '20px' }}>
+                        <img
+                            src={mainLogo}
+                            alt='Ecliptica Logo'
+                            className={css`
+                                height: 55px;
+                                width: auto;
+                            `}
+                        />
+                    </Box>
+                    {/* Title */}
+                    <Text
+                        color='#333333'
+                        fontSize='30px'
+                        className="title-text"
+                    >
+                        My Plants
+                    </Text>
+                        {!plantExists ? (
+                            <button onClick={addToMyPlants} className="icon-button">
+                                <img src={addIcon} className="icon-image" alt="Add to My Plants" />
+                            </button>
+                        ) : (
+                            <button onClick={removeFromMyPlants} className="icon-button">
+                                <img src={removeIcon} className="icon-image" alt="Remove from My Plants" />
+                            </button>
+                        )}
                 </div>
-                </Box>
             </AppBar>
             <div className="info-container">
                 <h1>{plant.name}</h1>
