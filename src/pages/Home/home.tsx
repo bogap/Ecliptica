@@ -8,45 +8,64 @@ import AppBar from '../compoments/AppBar';
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
+import useSWR from 'swr'; //
 import './Home.css';
+import { getConfigValue } from '@brojs/cli';
+
+const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
 const Home = () => {
-    const [plants, setPlants] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [plants, setPlants] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+    // const [searchTerm, setSearchTerm] = useState('');
+    // const [userPlants, setUserPlants] = useState([]);
+
     const [searchTerm, setSearchTerm] = useState('');
     const [userPlants, setUserPlants] = useState([]);
 
-    // User plant list
+    // fetch plants
+    const { data: plants, error, isValidating: loading } = useSWR(
+        `${getConfigValue('cats.backend')}/plants/list?alias=${searchTerm || 'a'}`,
+        fetcher
+    );
+
+    // user plant list
     useEffect(() => {
         const savedPlants = JSON.parse(localStorage.getItem('userPlants') || '[]');
         setUserPlants(savedPlants);
     }, []);
 
-    useEffect(() => {
-        const fetchPlants = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/plants/list', {
-                    params: { alias: searchTerm || 'a' }
-                });
-                setPlants(response.data.results);
-                setLoading(false);
-            } catch (err) {
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-
-        fetchPlants();
-    }, [searchTerm]);
+    // useEffect(() => {
+    //     const savedPlants = JSON.parse(localStorage.getItem('userPlants') || '[]');
+    //     setUserPlants(savedPlants);
+    // }, []);
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Error: {error.message}</div>;
     }
+
+    // useEffect(() => {
+    //     const fetchPlants = async () => {
+    //         try {
+    //             const response = await axios.get('http://localhost:3000/plants/list', {
+    //                 params: { alias: searchTerm || 'a' }
+    //             });
+    //             setPlants(response.data.results);
+    //             setLoading(false);
+    //         } catch (err) {
+    //             setError(err.message);
+    //             setLoading(false);
+    //         }
+    //     };
+    //
+    //     fetchPlants();
+    // }, [searchTerm]);
+
 
     return (
         <div className="home-container">
@@ -115,5 +134,6 @@ const Home = () => {
         </div>
     );
 };
+
 
 export default Home;
