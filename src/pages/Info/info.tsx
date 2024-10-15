@@ -43,6 +43,10 @@ const Info = () => {
     return (
         <div>
             <AppBar>
+                <Box
+                    id="logo-title-container"
+                    sx={{ display: 'flex', alignItems: 'center' }} // Aligns items in one row
+                >
                 <Box id='logo' sx={{ marginRight: '20px' }}>
                     <img
                         src={mainLogo}
@@ -70,6 +74,7 @@ const Info = () => {
                         </button>
                     )}
                 </div>
+                </Box>
             </AppBar>
             <div className="info-container">
                 <h1>{plant.name}</h1>

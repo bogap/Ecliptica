@@ -32,12 +32,19 @@ const Home = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [userPlants, setUserPlants] = useState([]);
+    const [submittedTerm, setSubmittedTerm] = useState('');
 
     // fetch plants
     const { data: plants, error, isValidating: loading } = useSWR(
-        `${getConfigValue('ecliptica.backend')}/plants/list?alias=${searchTerm || 'a'}`,
+        `${getConfigValue('ecliptica.backend')}/plants/list?alias=${submittedTerm || 'a'}`,
         fetcher
     );
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            setSubmittedTerm(searchTerm);
+        }
+    };
 
     // user plant list
     useEffect(() => {
@@ -79,14 +86,16 @@ const Home = () => {
                     {/* Search Bar and Calendar */}
                     <div className="search-container">
                         {/* Search Bar */}
-                        <PlantSearch
-                            query={searchTerm}
-                            onSearch={setSearchTerm}
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onKeyDown={handleKeyDown}
                             placeholder="Search plants..."
                         />
                         {/* Calendar Button */}
                         <Link to="/ecliptica/calendar" className="calendar-link">
-                            <img src={calendarIcon} className="calendar-icon" alt="Calendar" />
+                            <img src={calendarIcon} className="calendar-icon" alt="Calendar"/>
                         </Link>
                     </div>
                 </div>
