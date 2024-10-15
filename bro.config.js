@@ -20,5 +20,6 @@ module.exports = {
   },
   config: {
     "ecliptica.api": "/api",
+    "ecliptica.backend": "http://localhost:8099/api/ecliptica",
   },
 };
