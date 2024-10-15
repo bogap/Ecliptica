@@ -43,17 +43,17 @@ const Info = () => {
     return (
         <div>
             <AppBar>
-                <div className="info-container">
-                    <Box id='logo' sx={{ marginRight: '20px' }}>
-                        <img
-                            src={mainLogo}
-                            alt='Ecliptica Logo'
-                            className={css`
+                <Box id='logo' sx={{ marginRight: '20px' }}>
+                    <img
+                        src={mainLogo}
+                        alt='Ecliptica Logo'
+                        className={css`
                         height: 55px;
                         width: auto;
                     `}
-                        />
-                    </Box>
+                    />
+                </Box>
+                <div className="info-container">
                     <Link to="/ecliptica/" className="my-plants-link">
                         <Text color='#333333' fontSize='30px' className="my-plants-text">
                             My Plants
