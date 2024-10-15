@@ -8,6 +8,9 @@ import Text from '../compoments/Text';
 import addIcon from '../compoments/imgs/add.png';
 // @ts-ignore
 import removeIcon from '../compoments/imgs/remove.png';
+import mainLogo from "../../../public/app_logo.png";
+import {css} from "@emotion/css";
+import Box from "@mui/material/Box";
 
 const Info = () => {
     const location = useLocation();
@@ -39,6 +42,16 @@ const Info = () => {
         <div>
             <AppBar>
                 <div className="info-container">
+                    <Box id='logo' sx={{ marginRight: '20px' }}>
+                        <img
+                            src={mainLogo}
+                            alt='Ecliptica Logo'
+                            className={css`
+                        height: 55px;
+                        width: auto;
+                    `}
+                        />
+                    </Box>
                     <Link to="/ecliptica/" className="my-plants-link">
                         <Text color='#333333' fontSize='30px' className="my-plants-text">
                             My Plants

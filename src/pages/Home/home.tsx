@@ -5,12 +5,15 @@ import Grid from "../compoments/Grid";
 import Text from '../compoments/Text';
 import PlantSearch from "../compoments/PlantSearch";
 import AppBar from '../compoments/AppBar';
+import mainLogo from '../../../public/app_logo.png';
 // @ts-ignore
 import calendarIcon from '../compoments/imgs/calendar.png';
 import axios from "axios";
 import useSWR from 'swr'; //
 import './Home.css';
 import { getConfigValue } from '@brojs/cli';
+import {css} from "@emotion/css";
+import Box from "@mui/material/Box";
 
 const fetcher = async (url: string) => {
     try {
@@ -52,6 +55,16 @@ const Home = () => {
         <div className="home-container">
             <AppBar>
                 <div className="header-container">
+                    <Box id='logo' sx={{ marginRight: '20px' }}>
+                        <img
+                            src={mainLogo}
+                            alt='Ecliptica Logo'
+                            className={css`
+                        height: 55px;
+                        width: auto;
+                    `}
+                        />
+                    </Box>
                     {/* Title */}
                     <Text
                         color='#333333'
