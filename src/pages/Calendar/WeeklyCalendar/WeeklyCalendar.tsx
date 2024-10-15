@@ -22,7 +22,7 @@ export default function WeeklyCalendar() {
 
     // fetch plants
     const {data: plants, error, isValidating: loading} = useSWR(
-        `${getConfigValue('ecliptica.backend')}/plants/list/plants/list?alias=a`,
+        `${getConfigValue('ecliptica.backend')}/plants/list?alias=a`,
         fetcher
     );
 
