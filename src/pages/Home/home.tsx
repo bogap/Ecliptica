@@ -12,7 +12,16 @@ import useSWR from 'swr'; //
 import './Home.css';
 import { getConfigValue } from '@brojs/cli';
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data);
+const fetcher = async (url: string) => {
+    try {
+        const response = await axios.get(url);
+        console.log('Response data:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+    }
+};
 
 const Home = () => {
 
