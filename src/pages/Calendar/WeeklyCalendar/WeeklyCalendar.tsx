@@ -1,9 +1,6 @@
 import {css} from "@emotion/css";
 import DayCard from "../DayCard/DayCard";
-import React, {useState, useEffect} from "react";
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
-import useSWR from "swr";
+import React from "react";
 import {getConfigValue} from '@brojs/cli';
 import axios from "axios";
 import useSWRImmutable from "swr/immutable";
@@ -11,10 +8,8 @@ import useSWRImmutable from "swr/immutable";
 const fetcher = async (url: string) => {
     try {
         const response = await axios.get(url);
-        console.log('Response data:', response.data);
         return response.data;
     } catch (error) {
-        console.error('Fetch error:', error);
         throw error;
     }
 };
@@ -30,8 +25,6 @@ export default function WeeklyCalendar() {
     // Render loading, error, or plants
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading plants: {error.message}</div>;
-
-    console.log(plants)
 
     return (
         <div id="calendars" className={css` display: flex; `}>

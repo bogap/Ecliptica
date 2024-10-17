@@ -20,6 +20,7 @@ export default function DayCard(props: { day: number, plant: any }) {
     const dayName = currentDate.toUTCString().split(",")[0];
     const month = currentDate.toUTCString().split(",")[1].split(' ')[2];
     const plant = props.plant;
+
     function handleWatered() {
         if (wateredButtonText === 'Watered') {
             setWateredButtonText("Not watered")

@@ -73,7 +73,7 @@ export default function Header({ onCalendarViewChange }) {
                         }}
                         variant='body1'
                     >
-                        MY PLANTS
+                        My Plants
                     </Typography>
                 </Button>
                 <Button
