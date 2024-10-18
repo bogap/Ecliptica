@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DayCard from './DayCard';
 import { MemoryRouter } from 'react-router-dom';
@@ -53,5 +53,29 @@ describe('DayCard Component', () => {
       </MemoryRouter>);
 
     expect(screen.getByText('No plant')).toBeInTheDocument();
+  });
+
+  test('check if status of button changes on click', () => {
+    render(
+      <MemoryRouter>
+        <DayCard day={mockDayOffset} plant={{
+          id: '1',
+          alias: mockFlower,
+          image_url: mockImage,
+        }} />
+      </MemoryRouter>
+    );
+
+    const wateredButton = screen.getByRole('button', { name: /Watered/i });
+    expect(wateredButton).toBeInTheDocument();
+    expect(wateredButton).toHaveTextContent('Watered');
+
+    // click
+    fireEvent.click(wateredButton);
+    expect(wateredButton).toHaveTextContent('Not watered');
+
+    // click again, should revert
+    fireEvent.click(wateredButton);
+    expect(wateredButton).toHaveTextContent('Watered');
   });
 });
