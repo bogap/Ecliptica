@@ -6,12 +6,8 @@ import axios from "axios";
 import useSWRImmutable from "swr/immutable";
 
 const fetcher = async (url: string) => {
-    try {
-        const response = await axios.get(url);
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
+    const response = await axios.get(url);
+    return response.data;
 };
 
 export default function BigCalendar() {

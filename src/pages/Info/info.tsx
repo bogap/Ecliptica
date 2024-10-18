@@ -3,14 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './info.css';
 import AppBar from '../components/AppBar';
 import Text from '../components/Text';
-
-// @ts-ignore
 import addIcon from '../components/imgs/add.png';
-// @ts-ignore
 import removeIcon from '../components/imgs/remove.png';
-// @ts-ignore
-import mainLogo from "../../../public/app_logo.png"
-import Footer from "../Footer/Footer";
+import Footer from "../components/Calendar/Footer/Footer";
 import {css} from "@emotion/css";
 import Box from "@mui/material/Box";
 
@@ -46,7 +41,7 @@ const Info = () => {
                 <div className="header-container">
                     <Box id='logo' sx={{ marginRight: '20px' }}>
                         <img
-                            src={mainLogo}
+                            src='/app_logo.png'
                             alt='Ecliptica Logo'
                             className={css`
                                 height: 55px;

@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 
 import App from './app';
 
-export default () => <App/>;
+export default function MyComponent() {
+  return <App />;
+}
 
 let rootElement: ReactDOM.Root
 

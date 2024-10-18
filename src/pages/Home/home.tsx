@@ -3,14 +3,11 @@ import {Link} from 'react-router-dom';
 import PlantCard from "../components/PlantCard";
 import Grid from "../components/Grid";
 import Text from '../components/Text';
-import PlantSearch from "../components/PlantSearch";
 import AppBar from '../components/AppBar';
-// @ts-ignore
 import Footer from "../components/Calendar/Footer/Footer";
-// @ts-ignore
 import calendarIcon from '../components/imgs/calendar.png';
 import axios from "axios";
-import useSWR from 'swr'; //
+import useSWR from 'swr';
 import './Home.css';
 import {getConfigValue} from '@brojs/cli';
 import {css} from "@emotion/css";
@@ -135,7 +132,7 @@ const Home = () => {
                                 </Link>
                             ))
                         ) : (
-                            <p>No results found for "{searchTerm}". Try another search.</p>
+                            <p>No results found for &quot;{searchTerm}&quot;. Try another search.</p>
                         )
                     )}
                 </Grid>
