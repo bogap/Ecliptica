@@ -6,8 +6,7 @@ import Text from '../components/Text';
 import PlantSearch from "../components/PlantSearch";
 import AppBar from '../components/AppBar';
 // @ts-ignore
-import mainLogo from "../../../public/app_logo.png";
-import Footer from "../Footer/Footer";
+import Footer from "../components/Calendar/Footer/Footer";
 // @ts-ignore
 import calendarIcon from '../components/imgs/calendar.png';
 import axios from "axios";
@@ -71,7 +70,7 @@ const Home = () => {
                 <div className="header-container">
                     <Box id='logo' sx={{marginRight: '20px'}}>
                         <img
-                            src={mainLogo}
+                            src='/app_logo.png'
                             alt='Ecliptica Logo'
                             className={css`
                                 height: 55px;

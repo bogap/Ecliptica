@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { css } from "@emotion/css";
 import { useLocation } from "react-router-dom";
-import mainLogo from '../../../public/app_logo.png';
 import Typography from '@mui/material/Typography';
 import { getNavigationsValue } from "@brojs/cli";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import HomeIcon from '@mui/icons-material/Home';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ViewWeekIcon from '@mui/icons-material/ViewWeek';
 import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek';
@@ -37,7 +35,7 @@ export default function Header({ onCalendarViewChange }) {
         >
             <Box id='logo' sx={{ marginRight: '20px' }}>
                 <img
-                    src={mainLogo}
+                    src="/app_logo.png"
                     alt='Ecliptica Logo'
                     className={css`
                         height: 55px;
