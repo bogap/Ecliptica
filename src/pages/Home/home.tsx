@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import PlantCard from "../compoments/PlantCard";
-import Grid from "../compoments/Grid";
-import Text from '../compoments/Text';
-import PlantSearch from "../compoments/PlantSearch";
-import AppBar from '../compoments/AppBar';
+import PlantCard from "../components/PlantCard";
+import Grid from "../components/Grid";
+import Text from '../components/Text';
+import PlantSearch from "../components/PlantSearch";
+import AppBar from '../components/AppBar';
 // @ts-ignore
 import mainLogo from "../../../public/app_logo.png";
 import Footer from "../Footer/Footer";
 // @ts-ignore
-import calendarIcon from '../compoments/imgs/calendar.png';
+import calendarIcon from '../components/imgs/calendar.png';
 import axios from "axios";
 import useSWR from 'swr'; //
 import './Home.css';

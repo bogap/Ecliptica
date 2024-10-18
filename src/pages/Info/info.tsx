@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './info.css';
-import AppBar from '../compoments/AppBar';
-import Text from '../compoments/Text';
+import AppBar from '../components/AppBar';
+import Text from '../components/Text';
 
 // @ts-ignore
-import addIcon from '../compoments/imgs/add.png';
+import addIcon from '../components/imgs/add.png';
 // @ts-ignore
-import removeIcon from '../compoments/imgs/remove.png';
+import removeIcon from '../components/imgs/remove.png';
 // @ts-ignore
 import mainLogo from "../../../public/app_logo.png"
 import Footer from "../Footer/Footer";

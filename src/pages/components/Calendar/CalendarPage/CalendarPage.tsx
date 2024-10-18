@@ -5,7 +5,7 @@ import Header from '../../Header/Header';
 import Footer from "../../Footer/Footer";
 
 export default function CalendarPage() {
-    const [calendarView, setCalendarView] = useState('weekly');  // Default view (3-day)
+    const [calendarView, setCalendarView] = useState('weekly');
 
     return (
         <div>

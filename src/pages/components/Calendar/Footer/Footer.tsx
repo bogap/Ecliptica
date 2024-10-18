@@ -32,7 +32,7 @@ export default function Footer() {
                         <Typography variant="h5" sx={{fontWeight: '100', color: '#333333'}}>Follow us:</Typography>
                     </div>
                     <div id='github'>
-                        <a href='https://github.com/ch3rnushka/Ecliptica'>
+                        <a href='https://github.com/ch3rnushka/Ecliptica' aria-label='github'>
                             <GitHubIcon sx={{
                                 fontSize: '2rem',
                                 color: 'black',
@@ -45,7 +45,7 @@ export default function Footer() {
                         </a>
                     </div>
                     <div id='telegram'>
-                        <a href='https://t.me'>
+                        <a href='https://t.me' aria-label='telegram'>
                             <TelegramIcon sx={{
                                 fontSize: '2rem',
                                 color: '#black',
@@ -58,7 +58,7 @@ export default function Footer() {
                         </a>
                     </div>
                     <div id='email'>
-                        <a href='mailto:student@innopolis.university'>
+                        <a href='mailto:student@innopolis.university' aria-label='email'>
                             <EmailIcon sx={{
                                 fontSize: '2rem',
                                 color: 'black',

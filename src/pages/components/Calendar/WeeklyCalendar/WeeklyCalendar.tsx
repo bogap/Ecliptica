@@ -22,13 +22,12 @@ export default function WeeklyCalendar() {
         fetcher
     );
 
-    // Render loading, error, or plants
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading plants: {error.message}</div>;
 
     return (
         <div id="calendars" className={css` display: flex; `}>
-            {[0, 1, 2].map(dayOffset => {
+            {[0, 1, 2, 3, 4, 5, 6].map(dayOffset => {
                 const plant = plants?.results ? plants.results[dayOffset] : null;
                 return (
                     <DayCard
