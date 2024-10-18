@@ -57,7 +57,9 @@ export default function DayCard(props: { day: number, plant: any }) {
                 justify-content: center;
                 background-color: rgba(255, 255, 255, 0.5);`}>
                 <CalendarTodayIcon color="action"/>
-                <Typography variant='h5' marginTop='5px'>{dayName}</Typography>
+                <Typography variant='h3' marginTop='5px' sx={{ fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+                        {dayName}
+                    </Typography>
                 <div className={css`display: flex;
                     gap: 10px`}>
                     <Typography variant='h5' color='#1976d2'>{day}</Typography>

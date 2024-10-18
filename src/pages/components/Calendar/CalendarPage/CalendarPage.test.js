@@ -1,22 +1,17 @@
-// CalendarPage.test.tsx
-import '@testing-library/jest-dom'; // Ensure this is imported
+import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import CalendarPage from './CalendarPage'; // Adjust the import based on your directory structure
-import WeeklyCalendar from '../WeeklyCalendar/WeeklyCalendar';
-import BigCalendar from '../BigCalendar/BigCalendar';
-import Header from '../../Header/Header';
-import Footer from '../../Footer/Footer';
+import CalendarPage from './CalendarPage';
 
 jest.mock('../WeeklyCalendar/WeeklyCalendar', () => () => <div>Weekly Calendar</div>);
 jest.mock('../BigCalendar/BigCalendar', () => () => <div>Big Calendar</div>);
-jest.mock('../../Header/Header', () => ({ onCalendarViewChange }) => (
+jest.mock('../Header/Header', () => ({ onCalendarViewChange }) => (
     <>
         <button onClick={() => onCalendarViewChange('weekly')}>7-Day View</button>
         <button onClick={() => onCalendarViewChange('big')}>3-Day View</button>
     </>
 ));
-jest.mock('../../Footer/Footer', () => () => <div>Footer</div>);
+jest.mock('../Footer/Footer', () => () => <div>Footer</div>);
 
 describe('CalendarPage', () => {
     test('renders BigCalendar when 3-Day View clicked', () => {
