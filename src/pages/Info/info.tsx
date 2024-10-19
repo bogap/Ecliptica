@@ -3,8 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./info.css";
 import AppBar from "../components/AppBar";
 import Text from "../components/Text";
+// @ts-ignore
 import addIcon from "../components/imgs/add.png";
+// @ts-ignore
 import removeIcon from "../components/imgs/remove.png";
+// @ts-ignore
 import mainLogo from "../../../public/app_logo.png";
 import Footer from "../components/Calendar/Footer/Footer";
 import { css } from "@emotion/css";
