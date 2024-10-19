@@ -6,6 +6,7 @@ import { getNavigationsValue } from "@brojs/cli";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import mainLogo from "../../../../../public/app_logo.png";
 import ViewWeekIcon from "@mui/icons-material/ViewWeek";
 import CalendarViewWeekIcon from "@mui/icons-material/CalendarViewWeek";
 
@@ -39,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onCalendarViewChange }) => {
         >
             <Box id="logo" sx={{ marginRight: "20px" }}>
                 <img
-                    src="/app_logo.png"
+                    src={mainLogo}
                     alt="Ecliptica Logo"
                     className={css`
                         height: 55px;
