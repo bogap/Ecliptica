@@ -16,10 +16,56 @@ const theme = createTheme({
         h3: {
             fontSize: "1.2rem",
             "@media (min-width:600px)": {
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
             },
             "@media (min-width:900px)": {
                 fontSize: "2rem",
+            },
+        },
+        h5: {
+            fontSize: "1rem",
+            "@media (min-width:600px)": {
+                fontSize: "1rem",
+            },
+            "@media (min-width:900px)": {
+                fontSize: "1.5rem",
+            },
+        },
+        h6: {
+            fontSize: "0.8rem",
+            "@media (min-width:600px)": {
+                fontSize: "0.8rem",
+            },
+            "@media (min-width:900px)": {
+                fontSize: "1.125rem",
+            },
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontSize: "0.75rem",
+                    "@media (min-width:600px)": {
+                        fontSize: "1rem",
+                    },
+                    "@media (min-width:900px)": {
+                        fontSize: "1.125rem",
+                    },
+                },
+            },
+        },
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    padding: "8px",
+                    "@media (min-width:600px)": {
+                        padding: "10px",
+                    },
+                    "@media (min-width:900px)": {
+                        padding: "12px",
+                    },
+                },
             },
         },
     },
