@@ -5,7 +5,9 @@ import Grid from "../components/Grid";
 import Text from "../components/Text";
 import AppBar from "../components/AppBar";
 import Footer from "../components/Calendar/Footer/Footer";
+// @ts-ignore
 import calendarIcon from "../components/imgs/calendar.png";
+// @ts-ignore
 import mainLogo from "../../../public/app_logo.png";
 import axios from "axios";
 import useSWR from "swr";
