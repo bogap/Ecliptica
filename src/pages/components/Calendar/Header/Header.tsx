@@ -28,13 +28,13 @@ const Header: React.FC<HeaderProps> = ({ onCalendarViewChange }) => {
     <Box
       id="main"
       className={css`
-          display: flex;
-          align-items: center;
-          background-color: #eff1ed;
-          font-size: 30px;
-          padding: 0 20px;
-          height: auto;
-          overflow: hidden;
+        display: flex;
+        align-items: center;
+        background-color: #eff1ed;
+        font-size: 30px;
+        padding: 0 20px;
+        height: auto;
+        overflow: hidden;
       `}
     >
       <Box id="logo" sx={{ marginRight: '20px' }}>
@@ -42,8 +42,8 @@ const Header: React.FC<HeaderProps> = ({ onCalendarViewChange }) => {
           src="/app_logo.png"
           alt="Ecliptica Logo"
           className={css`
-              height: 55px;
-              width: auto;
+            height: 55px;
+            width: auto;
           `}
         />
       </Box>
@@ -80,7 +80,11 @@ const Header: React.FC<HeaderProps> = ({ onCalendarViewChange }) => {
         </Button>
         <Button
           variant="text"
-          color={location.pathname === '/ecliptica/calendar' ? 'secondary' : 'primary'}
+          color={
+            location.pathname === '/ecliptica/calendar'
+              ? 'secondary'
+              : 'primary'
+          }
           sx={{
             display: 'flex',
             alignItems: 'center',

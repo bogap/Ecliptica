@@ -7,19 +7,19 @@ export default function MyComponent() {
   return <App />;
 }
 
-let rootElement: ReactDOM.Root
+let rootElement: ReactDOM.Root;
 
 export const mount = (Сomponent, element = document.getElementById('app')) => {
-    const rootElement = ReactDOM.createRoot(element);
-    rootElement.render(<Сomponent/>);
+  const rootElement = ReactDOM.createRoot(element);
+  rootElement.render(<Сomponent />);
 
-    if(module.hot) {
-        module.hot.accept('./app', ()=> {
-            rootElement.render(<Сomponent/>);
-        })
-    }
+  if (module.hot) {
+    module.hot.accept('./app', () => {
+      rootElement.render(<Сomponent />);
+    });
+  }
 };
 
 export const unmount = () => {
-    rootElement.unmount();
+  rootElement.unmount();
 };
