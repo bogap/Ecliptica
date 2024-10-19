@@ -7,16 +7,13 @@ import ClearIcon from "@mui/icons-material/Clear";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Link } from "react-router-dom";
 
-// Define a type for the plant
 interface Plant {
     id: string;
     alias: string;
     image_url: string;
 }
 
-// Update your component props type
 export default function DayCard(props: { day: number; plant: Plant }) {
-    // Rest of your component code...
     const [wateredButtonText, setWateredButtonText] = useState("Watered");
     const [backgroundColor, setBackgroundColor] = useState("#fd7c6e");
     const [wateredButtonColor, setWateredButtonColor] = useState("secondary");
