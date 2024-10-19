@@ -50,7 +50,7 @@ const Info = () => {
                     <Box id="logo" sx={{ marginRight: "20px" }}>
                         <img
                             src={mainLogo}
-                            alt='Ecliptica Logo'
+                            alt="Ecliptica Logo"
                             className={css`
                                 height: 55px;
                                 width: auto;
