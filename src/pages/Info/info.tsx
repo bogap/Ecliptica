@@ -5,6 +5,7 @@ import AppBar from "../components/AppBar";
 import Text from "../components/Text";
 import addIcon from "../components/imgs/add.png";
 import removeIcon from "../components/imgs/remove.png";
+import mainLogo from "../../../public/app_logo.png";
 import Footer from "../components/Calendar/Footer/Footer";
 import { css } from "@emotion/css";
 import Box from "@mui/material/Box";
@@ -45,8 +46,8 @@ const Info = () => {
                 <div className="header-container">
                     <Box id="logo" sx={{ marginRight: "20px" }}>
                         <img
-                            src="/app_logo.png"
-                            alt="Ecliptica Logo"
+                            src={mainLogo}
+                            alt='Ecliptica Logo'
                             className={css`
                                 height: 55px;
                                 width: auto;

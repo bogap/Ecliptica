@@ -6,6 +6,7 @@ import Text from "../components/Text";
 import AppBar from "../components/AppBar";
 import Footer from "../components/Calendar/Footer/Footer";
 import calendarIcon from "../components/imgs/calendar.png";
+import mainLogo from "../../../public/app_logo.png";
 import axios from "axios";
 import useSWR from "swr";
 import "./Home.css";
@@ -72,8 +73,8 @@ const Home = () => {
                 <div className="header-container">
                     <Box id="logo" sx={{ marginRight: "20px" }}>
                         <img
-                            src="/app_logo.png"
-                            alt="Ecliptica Logo"
+                            src={mainLogo}
+                            alt='Ecliptica Logo'
                             className={css`
                                 height: 55px;
                                 width: auto;
