@@ -10,7 +10,11 @@ const fetcher = async (url: string) => {
     return response.data;
 };
 
-export default function BigCalendar() {
+interface CalendarProps {
+    dayCount: number;
+}
+
+export default function WeeklyCalendar({ dayCount }: CalendarProps) {
     // fetch plants
     const {
         data: plants,
@@ -31,7 +35,7 @@ export default function BigCalendar() {
                 display: flex;
             `}
         >
-            {[0, 1, 2].map((dayOffset) => {
+            {[...Array(dayCount)].map((_, dayOffset) => {
                 const plant = plants?.results
                     ? plants.results[dayOffset]
                     : null;

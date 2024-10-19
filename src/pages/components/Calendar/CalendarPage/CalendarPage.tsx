@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import WeeklyCalendar from "../WeeklyCalendar/WeeklyCalendar";
-import BigCalendar from "../BigCalendar/BigCalendar";
+import Calendar from "../Calendar/Calendar";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 export default function CalendarPage() {
     const [calendarView, setCalendarView] = useState("weekly");
 
+    const getDayCount = () => {
+        return calendarView === "weekly" ? 7 : 3;
+    };
+
     return (
         <div>
             <Header onCalendarViewChange={setCalendarView} />
-
-            {calendarView === "weekly" ? <WeeklyCalendar /> : <BigCalendar />}
+            <Calendar dayCount={getDayCount()} />
             <Footer />
         </div>
     );
